@@ -69,6 +69,16 @@ class MemoListViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                
+                let selectedMemo = self.viewModel.memos.value[indexPath.row]
+                let memoDetailViewModel = MemoDetailViewModel(memo: selectedMemo, memoRepository: DefaultMemoRepository())
+                let memoDetailViewController = MemoDetailViewController(viewModel: memoDetailViewModel)
+                self.navigationController?.pushViewController(memoDetailViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupViews() {

@@ -33,6 +33,7 @@ class MemoDetailViewController: UIViewController {
     }
 
     private func setupViews() {
+        view.backgroundColor = .white
         titleTextField = UITextField()
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleTextField)

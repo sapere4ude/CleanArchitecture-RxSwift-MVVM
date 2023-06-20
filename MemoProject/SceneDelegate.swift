@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let memoListViewController = MemoListViewController(viewModel: MemoListViewModel(memoRepository: MemoRepositoryImpl()))
+        let memoListViewController = MemoListViewController(viewModel: MemoListViewModel(memoRepository: DefaultMemoRepository()))
 
         let navigationController = UINavigationController(rootViewController: memoListViewController)
 

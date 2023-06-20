@@ -14,7 +14,7 @@ protocol MemoRepository {
     func delete(memo: Memo) -> Observable<Void>
 }
 
-class MemoRepositoryImpl: MemoRepository {
+class DefaultMemoRepository: MemoRepository {
     private var memos: [Memo] = []
 
     func create(memo: Memo) -> Observable<Memo> {
